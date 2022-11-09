@@ -21,6 +21,7 @@ def init():
         img = np.asarray(img, dtype="float32") #need to transfer to np to reshape
         img = img.reshape(1, img.shape[0], img.shape[1], img.shape[2]) #rgb to reshape to 1,100,100,3
         pred=model.predict(img)
+        pred=np.argmax(pred,axis=1)
         return(render_template("index.html", result=str(pred)))
     else:
         return(render_template("index.html", result="WAITING"))
