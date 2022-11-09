@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@300&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+
+
+    <title>SkinCheck</title>
+</head>
+<body data-bs-spy="scroll" data-target=".navbar" data-offset="50"> 
+    <!-- Navbar-->
+     <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light pt-3 pb-3 sticky-top">
+        <div class="container menu">
+          <a class="navbar-brand" href="#Home"><img src="img/logo.jpg" alt="Skin Cancer Classifier AI" class="logo"></a>
+          <!-- ^change logo -->
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item px-lg-2">
+                <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+              </li>
+              <li class="nav-item px-lg-2">
+                <a class="nav-link" href="./predict.html">Skin Checker</a>
+              <li class="nav-item px-lg-2">
+                <a class="nav-link" href="#Skin Cancer">About Skin Cancer</a>
+              </li>
+              </li>
+              <li class="nav-item px-lg-2">
+                <a class="nav-link" href="#Advice">Recommendations</a>
+              </li>
+              <li class="nav-item px-lg-2">
+                <a class="nav-link" href="#content1">Upcoming Events</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      
+      <!-- Home-->
+      
+
+            <section class="features" id="Skin">
+          <div class="container">
+            <div class="section-heading text-center">
+              <h2>Upload Image to Analyse Type of Skin Cancer</h2>
+              <p class="text-muted"> Please ensure the image is clear and not blurry as it may produce the wrong result.</p>
+              <hr>
+            </div>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-4 mb-5">
+                <div class="device-container text-center">
+                   <form method="post" action = "/" enctype="multipart/form-data">
+                        <input type="file" name="file">
+                        <input type="submit" value="Upload">
+                   </form>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 mb-5">
+              <div class="device-container text-center">
+                <h1> Results </h1>
+                <p> The analysis result is: {{result}} </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+     <!-- About -->
+     <div class="container mt-5 mb-5">
+      <div class="col-12 mt-5 mb-5" id="aboutNav">
+        <h1 class="text-center h1Before" id="Skin Cancer">About</h1>
+      </div>
+      <div class="aboutParagraph aboutBefore" id="aboutP">
+        <p class="" id=""> <p class="text-center">Skin Cancer is most commonly caused by cumulative exposure to the sun's UV rays. Early detection is crucial as treatment is more effective in the beginning stages of skin cancer. At later stages, treatment costs increase exponentially as procedures become more complex.</p>
+          
+        <p class="text-center">Although it is one of the easiest cancers to identify, many people ignore the issue as they do not recognise the symptoms.</p>
+
+        <p class="text-center"> With UV levels rising globally, it is crucial to tap into AI to help classify skin lesions accurately and help patients and doctors identify skin cancers early.</p> 
+      
+        </p>
+
+      </div>
+</div>
+      </div>       
+    </div>
+      <!--Advice-->
+      <div class="container mt-5 mb-5">
+        <div class="col-12 mt-5 mb-5" id="Advice">
+          <h1 class="text-center h1Before" id="Advice">Recommendations</h1>
+        </div>
+        <div class="aboutParagraph aboutBefore" id="aboutP">
+          <p class="" id=""> 
+          <p class="text-center">Physicians reccomend checking your skin spots every 3 months. With our skin checker, you can simply upload your photo to get the result instantanously! </p>
+  
+          <p class="text-center">Remember to apply UV protection on exposed skin or wear long sleeves whenever you go outdoors to reduce your exposure to UV rays! </p> 
+
+
+
+
+
+
+
+      <!-- Content -->
+      <div class="container-fluid bg-color mt-5 mb-5 pb-5">
+
+        <div class="row rowWidth">
+          <div class="col-12 mt-5 mb-5">
+            <h1 class="text-center h1Before" id="content1">Upcoming events</h1>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-5">
+            <div id="one" class="card cardContent c1Before">
+              <img src="img/sc101.png"  alt="" class="card-img-top">
+              <div class="card-body">
+                <h2 class="card-title">9 December 2022</h2>
+                <h4>An Introduction to Skin Cancer</h4>
+                <p class="card-text">
+                  Come learn about the most common skin cancers, causes and how to identify them! Open to Public!
+                  </p>
+              </div>
+            </div>
+            
+            
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-5">
+            <div id="two" class="card cardContent c2Before">
+              <img src="img/melomas.png"  alt="" class="card-img-top">
+              <div class="card-body">
+                <h2 class="card-title">16 December 2022</h2>
+                <h4>Types of Melanomas</h4>
+                <p class="card-text">
+                  Join us to delve deeper into the diferent types of Melanomas! Open to Public!
+                  </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-5">
+            <div id="three" class="card cardContent c3Before">
+              <img src="img/ne.png"  alt="" class="card-img-top">
+              <div class="card-body">
+                <h2 class="card-title">23 April</h2>
+                <h4>Newest treatments in Skin Cancer</h4>
+                <p class="card-text"> 
+                  Please sign up to indicate your attendence. (Restricted to Medical staff only)
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Footer -->
+      <div class="footer py-5 footerCustom text-white mt-5">&copy; 2022 All rights reserved | SocializeUs.com</div>
+      <script src="code.js"></script>
+</body>
+</html>
