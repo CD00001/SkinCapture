@@ -6,6 +6,14 @@ import numpy as np
 
 app = Flask(__name__)
 
+dict_names = {0 : "Actinic keratos",
+              1 : "Basal cell carcinoma",
+              2 : "SKI",
+              3 : "Dermatofibroma",
+              4 : "Melanocytic nevi",
+              5 : "Vascular lesions",
+              6 : "Melanoma" }
+
 @app.route('/', methods=['GET', 'POST'])
 def init():
     if request.method == 'POST':
@@ -22,7 +30,9 @@ def init():
         img = img.reshape(1, img.shape[0], img.shape[1], img.shape[2]) #rgb to reshape to 1,100,100,3
         pred=model.predict(img)
         pred=np.argmax(pred,axis=1)
-        return(render_template("index.html", result=str(pred)))
+        if pred in dict_names:
+            pred_name = dict_names[pred]
+        return(render_template("index.html", result=str(pred_name)))
     else:
         return(render_template("index.html", result="WAITING"))
 if __name__ == "__main__":
