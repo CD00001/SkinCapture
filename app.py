@@ -6,8 +6,6 @@ import numpy as np
 
 app = Flask(__name__)
 
-
-
 @app.route('/', methods=['GET', 'POST'])
 def init():
     if request.method == 'POST':
@@ -22,20 +20,24 @@ def init():
         img.resize((150,150,3))
         img = np.asarray(img, dtype="float32") #need to transfer to np to reshape
         img = img.reshape(1, img.shape[0], img.shape[1], img.shape[2]) #rgb to reshape to 1,100,100,3
-        dict_names = {0 : "Actinic keratos",
-              1 : "Basal cell carcinoma",
-              2 : "SKI",
-              3 : "Dermatofibroma",
-              4 : "Melanocytic nevi",
-              5 : "Vascular lesions",
-              6 : "Melanoma" }
         pred=model.predict(img)
         pred=np.argmax(pred,axis=1)
-        if pred in dict_names:
-            pred_name = dict_names[pred]
-        return(render_template("index.html", result=str(pred_name)))
+    if pred = 0:
+        return(render_template("index.html", result="You may have Actinic Keratosis which has a  small risk of cancer. Please continue monitoring for changes."))
+    elif pred = 1:
+        return(render_template("index.html", result="You may have Basal Cell Carcinoma (Cancerous). It is  reccommended to consult a dermatologist as soon as possible. ")) 
+    elif pred = 2:
+        return(render_template("index.html", result="Your skin lesion is non-cancerous. Please continue monitoring for changes."))
+    elif pred = 3:
+        return(render_template("index.html", result="Your skin lesion is non-cancerous. Please continue monitoring for changes."))
+    elif pred = 4:
+        return(render_template("index.html", result="Your skin lesion is non-cancerous. Please continue monitoring for changes."))
+    elif pred = 5:
+        return(render_template("index.html", result="You may have Vascular Lesions which has a small risk of cancer. Please continue monitoring for changes."))
+    elif pred = 6:
+        return(render_template("index.html", result="You may have Melanoma (Cancerous). It is  reccommended to consult a dermatologist as soon as possible. ")) 
     else:
-        return(render_template("index.html", result="WAITING"))
+        return(render_template("index.html", result="Pending Upload"))
 if __name__ == "__main__":
     app.run()
 
