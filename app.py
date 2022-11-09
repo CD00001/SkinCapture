@@ -39,13 +39,5 @@ def init():
         return(render_template("index.html", result="Pending Upload"))
 if __name__ == "__main__":
     app.run()
-if __name__ == "__main__":
-    app.run()
 
-
-# In[ ]:
-
-
-if __name__=="__main__":
-    app.run()
 # https://towardsdatascience.com/image-classification-of-pcbs-and-its-web-application-flask-c2b26039924a
