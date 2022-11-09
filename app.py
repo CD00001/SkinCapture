@@ -6,13 +6,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-dict_names = {0 : "Actinic keratos",
-              1 : "Basal cell carcinoma",
-              2 : "SKI",
-              3 : "Dermatofibroma",
-              4 : "Melanocytic nevi",
-              5 : "Vascular lesions",
-              6 : "Melanoma" }
+
 
 @app.route('/', methods=['GET', 'POST'])
 def init():
