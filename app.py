@@ -42,6 +42,8 @@ def init():
         print(results)
         
         return(render_template("index.html", result=results))
+    else:
+        return(render_template("index.html", result="Pending Upload"))
         
 if __name__ == "__main__":
     app.run()
