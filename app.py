@@ -3,7 +3,26 @@ from werkzeug.utils import secure_filename
 from keras.models import load_model
 from PIL import Image #use PIL
 import numpy as np
+import pandas as pd
+
+
 app = Flask(__name__)
+
+
+def msg(pred):
+    labels = {0 : "Actinic Keratos",
+              1 : "Basal Cell Carcinoma",
+              2 : "Benign Keratosis",
+              3 : "Dermatofibroma",
+              4 : "Melanocytic Nevi",
+              5 : "Vascular Lesion",
+              6 : "Melanoma" }
+
+    if pred in labels:
+        return(str(labels[pred])) 
+    else:
+        return(str("Please upload an image."))
+    
 @app.route('/', methods=['GET', 'POST'])
 def init():
     if request.method == 'POST':
@@ -20,9 +39,11 @@ def init():
         img = img.reshape(1, img.shape[0], img.shape[1], img.shape[2]) #rgb to reshape to 1,100,100,3
         pred=model.predict(img)
         pred=np.argmax(pred,axis=1)
-        return(render_template("index.html", result=str(pred)))
-    else:
-        return(render_template("index.html", result="WAITING"))
+        results = msg(pred)
+        print(results)
+        
+     return(render_template("index.html", result=results))
+        
 if __name__ == "__main__":
     app.run()
 # In[ ]:
