@@ -9,13 +9,13 @@ app = Flask(__name__)
 
 
 def msg(pred):
-    labels = {0 : "Actinic Keratos",
-              1 : "Basal Cell Carcinoma",
-              2 : "Benign Keratosis",
-              3 : "Dermatofibroma",
-              4 : "Melanocytic Nevi",
-              5 : "Vascular Lesion",
-              6 : "Melanoma" }
+    labels = {0 : "Actinic Keratos. Low risk of cancer, please continue to monitor.",
+              1 : "Cancerous: Basal Cell Carcinoma. Consult a dermatologist as soon as possible. ",
+              2 : "Benign Keratosis. You are safe.",
+              3 : "Dermatofibroma. You are safe.",
+              4 : "Melanocytic Nevi. You are safe.",
+              5 : "Vascular Lesion. Low risk of cancer, please continue to monitor.",
+              6 : "Cancerous: Melanoma. Consult a dermatologist as soon as possible." }
 
     if pred in labels:
         return(str(labels[pred])) 
