@@ -42,7 +42,7 @@ def init():
         results = msg(pred)
         print(results)
         
-     return(render_template("index.html", result=results))
+        return(render_template("index.html", result=results))
         
 if __name__ == "__main__":
     app.run()
