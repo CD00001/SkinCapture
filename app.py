@@ -38,6 +38,7 @@ def init():
         img = img.reshape(1, img.shape[0], img.shape[1], img.shape[2]) #rgb to reshape to 1,100,100,3
         pred=model.predict(img)
         pred=np.argmax(pred,axis=1)
+        pred = int(pred)
         results = msg(pred)
         print(results)
         
