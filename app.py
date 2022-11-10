@@ -3,7 +3,6 @@ from werkzeug.utils import secure_filename
 from keras.models import load_model
 from PIL import Image #use PIL
 import numpy as np
-import pandas as pd
 
 
 app = Flask(__name__)
